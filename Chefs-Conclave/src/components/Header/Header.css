@@ -1,0 +1,30 @@
+.header{
+    background-image: url('https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg?w=996&t=st=1682958283~exp=1682958883~hmac=f5cf50762ddccf2cd7b38c4e55ab86f1f7287f8a4e8e4ae2eb82f91c29ccb4eb');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 100%;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 20;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    background-color: rgb(11, 7, 92);
+    opacity: 0.4;
+  }
+  
+  .content{
+    position: relative;
+    height: 80vh;
+  }
+
+  @media screen and (max-width:500px) {
+    body{
+        background-color: black;
+    }
+  }
