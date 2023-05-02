@@ -1,0 +1,35 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.img-fluid{
+    height: 400px;
+}
+footer{
+    margin-top: 100px;
+}
+form{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 100px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width:500px) {
+    .grid{
+      display: block;
+    }  
+    .img-fluid{
+        height: 300px;
+    }  
+    .card{
+        height: auto;
+    }
+    .chefs{
+        padding: 10px;
+    }
+}

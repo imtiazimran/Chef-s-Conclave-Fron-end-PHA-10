@@ -4,8 +4,8 @@ import { Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ChefInfo = ({chef}) => {
-    const {chef_picture, chef_name, likes, num_of_recipes, years_of_experience} = chef
-    console.log(chef)
+    const {chef_picture, chef_name, likes, num_of_recipes, years_of_experience, id} = chef
+    
     return (
         <div>
         <CardGroup>
@@ -20,7 +20,7 @@ const ChefInfo = ({chef}) => {
               <p>{years_of_experience} Year Exprecience</p>
             </Card.Text>
           </Card.Body>
-          <Link><button className='btn btn-primary'>View Recipe</button></Link>
+          <Link to={`/chef/${id}`}><button className='btn btn-primary'>View Recipe</button></Link>
         </Card>
        
       </CardGroup>

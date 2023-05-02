@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, Card, CardGroup } from 'react-bootstrap';
-import './Recipie.css'
 import { Icon } from "@iconify/react";
 
 const Recipie = ({ item }) => {
     const { name, description, photo } = item
-    console.log(name)
     return (
         <div className='recipie-item'>
             <CardGroup>
