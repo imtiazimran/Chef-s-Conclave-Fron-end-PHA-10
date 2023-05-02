@@ -5,7 +5,7 @@ import './Recipie.css'
 const Recipies = () => {
     const [recipies, setRecipes] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8570/recipies')
+        fetch('https://server-imtiazimran.vercel.app/recipies')
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [])

@@ -1,4 +1,28 @@
-.chefs{
-    background-color: rgba(176, 14, 122, 0.26);
-    padding: 100px;
+.card-img-top{
+    height: 250px;
+}
+
+.chefs .card{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.overley{
+    position: relative;
+    width: 100%;
+    top: 450px;
+    left: 0;
+    background-color: rgb(0, 255, 174);
+    z-index: -1;
+    border-radius: 5px;
+    transition: .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.chefs .card:hover .overley{
+   position: absolute;
+   height: 100%;
+   top: 0;
+}
+.chefs .card:hover{
+    scale: 1.1;
 }

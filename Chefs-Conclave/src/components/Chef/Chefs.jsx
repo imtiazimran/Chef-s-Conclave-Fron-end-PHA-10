@@ -4,7 +4,7 @@ import './Chef.css'
 const Chefs = () => {
     const [chefs, setChefs] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8570/chef')
+        fetch('https://server-imtiazimran.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChefs(data))
     }, [])

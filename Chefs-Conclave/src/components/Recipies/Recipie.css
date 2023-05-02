@@ -13,4 +13,10 @@
     .img-fluid{
         height: 300px;
     }  
+    .card{
+        height: auto;
+    }
+    .chefs{
+        padding: 10px;
+    }
 }
