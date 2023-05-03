@@ -1,7 +1,7 @@
-import { Icon } from '@iconify/react';
-import React, { useEffect, useState } from 'react';
+import { Icon, InlineIcon } from '@iconify/react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import SingleRecipe from './SingleRecipe';
+import './Chef.css'
 
 const ChefRecipe = () => {
     const data = useLoaderData()
