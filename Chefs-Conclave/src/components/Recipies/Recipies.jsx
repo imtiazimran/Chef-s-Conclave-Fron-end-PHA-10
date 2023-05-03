@@ -6,7 +6,7 @@ const Recipies = () => {
     const [recipies, setRecipes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        fetch('https://server-imtiazimran.vercel.app/recipies')
+        fetch('http://localhost:8570/recipies')
             .then(res => res.json())
             .then(data => {
                 setRecipes(data)

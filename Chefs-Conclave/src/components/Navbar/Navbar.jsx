@@ -1,19 +1,20 @@
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ActiveLink from './ActiveLink';
 
 const Navigation = () => {
     return (
         <div>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="dark" variant="light">
         <Container>
-          <Link className='fs-4 ' to="/">Chefs Conclave</Link>
+          <Link className='fs-4 ' to="/">Chef's Conclave</Link>
           <Nav className="mx-auto d-flex gap-3">
-            <Link to="/">Home</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/recipe">Recipe</Link>
-            <Link to="/chef">See Chef's</Link>
+            <ActiveLink to="/">Home</ActiveLink>
+            <ActiveLink to="/blog">Blog</ActiveLink>
+            <ActiveLink to="/recipe">Menu</ActiveLink>
+            <ActiveLink to="/chef">See Chef's</ActiveLink>
           </Nav>
-          <Link to="/register"><Button variant="outline-success">Register</Button></Link>
+          <Link to="/register"><Button variant="outline-primary">Register</Button></Link>
         </Container>
       </Navbar>
         </div>

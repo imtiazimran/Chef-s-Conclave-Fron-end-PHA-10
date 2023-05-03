@@ -5,17 +5,19 @@ import SingleTips from './SingleTips';
 const Tips = () => {
     const [tips, setTips] = useState([])
     useEffect(() => {
-        fetch('https://server-imtiazimran.vercel.app/tips')
+        fetch('http://localhost:8570/tips')
             .then(res => res.json())
             .then(data => setTips(data))
     }, [])
-    console.log(tips)
     return (
-        <div>
-           {
-            tips.map(tip => <SingleTips key={tip.id} tips={tip}></SingleTips>)
-           }
-        </div >
+        <div className="container">
+        <h1 className='text-center mb-5 mt-5' >Some Tips For How to Become Better At Cooking</h1>
+            <div className='grid'>
+                {
+                    tips.map(tip => <SingleTips key={tip.id} tips={tip}></SingleTips>)
+                }
+            </div >
+        </div>
     );
 };
 

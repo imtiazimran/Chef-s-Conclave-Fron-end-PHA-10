@@ -8,7 +8,7 @@ const Chefs = () => {
     const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
     useEffect(() => {
-        fetch('https://server-imtiazimran.vercel.app/chef')
+        fetch('http://localhost:8570/chef')
             .then(res => res.json())
             .then(data => {
                 setChefs(data);
