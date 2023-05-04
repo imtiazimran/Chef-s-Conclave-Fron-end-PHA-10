@@ -26,3 +26,6 @@
 .chefs .card:hover{
     scale: 1.05;
 }
+.card-group:hover .card-body{
+    color: #fff;
+}

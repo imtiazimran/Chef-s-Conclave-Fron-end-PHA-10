@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefInfo = ({chef}) => {
@@ -11,7 +12,9 @@ const ChefInfo = ({chef}) => {
         <CardGroup>
         <Card className='shadow p-3'>
         <div className="overley"></div>
-          <Card.Img variant="top" src={chef_picture} />
+        <LazyLoad width={400} threshold={0.95}>
+         <Card.Img variant="top" src={chef_picture} />
+        </LazyLoad>
           <Card.Body>
             <Card.Title>{chef_name}</Card.Title>
             <Card.Text className='d-flex fs-5 align-items-center gap-4'>

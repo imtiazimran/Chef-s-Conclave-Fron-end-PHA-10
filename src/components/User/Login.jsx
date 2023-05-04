@@ -1,13 +1,25 @@
 import { Icon } from '@iconify/react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
 
-  const { googleSingIn, githubSingIn, signIn } = useContext(AuthContext)
+  const { googleSingIn, githubSingIn, signIn, user } = useContext(AuthContext)
+  
+  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
+  const handleShowPassword = () =>{
+    setShowPassword(!showPassword)
+  }
+
+  const location = useLocation()
+  
+  const from = location.state?.from.pathname || '/'
+
+  
 
   const handleSubmition = e => {
       e.preventDefault()
@@ -19,6 +31,7 @@ const Login = () => {
               const loggedUser = res.user;
               console.log(loggedUser)
               toast.success(`Welcome ${loggedUser.email}`)
+              navigate(from, { replace: true }) 
           })
           .catch(error => {
             if (error.code === 'auth/weak-password') {
@@ -31,30 +44,41 @@ const Login = () => {
         });
   }
 
+
+
   const continueWithGoogle = () => {
       googleSingIn()
           .then(res => {
               const loggedUser = res.user;
               toast.success('Successfully Logged With Google')
+              // navigate(from, { replace: true }) 
           })
           .catch(error => {
             toast.error('An error occurred, please try again later');
         });
   }
 
+  
   const continueWithGithub = () => {
     githubSingIn()
         .then(res => {
             const loggedUser = res.user;
             toast.success('Successfully Logged With Github')
+            // navigate(from, { replace: true }) 
         })
         .catch(error => {
           toast.error('An error occurred, please try again later');
       });
 }
-
+console.log(from)
+  useEffect(()=>{
+    if(user){
+      navigate(from, { replace: true }) 
+    }
+  },[from])
+  
   return (
-    <Form onSubmit={handleSubmition}>
+    <Form className='px-3' onSubmit={handleSubmition}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control name='email' type="email" placeholder="Enter email" required />
@@ -62,7 +86,8 @@ const Login = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control name='password' type="password" placeholder="Password" required />
+        <Form.Control name='password' type={showPassword ? "text" : "password"} placeholder="Password" required />
+        <small className='text-danger p-2' onClick={handleShowPassword}>{showPassword ? "Hide" : "Show"} Password</small>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit

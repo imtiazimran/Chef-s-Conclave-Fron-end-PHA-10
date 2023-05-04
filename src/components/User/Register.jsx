@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -7,17 +7,27 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const { googleSingIn, githubSingIn, createUser } = useContext(AuthContext)
+    const { googleSingIn, githubSingIn, createUser, updateProfileInfo } = useContext(AuthContext)
+
+    const [showPassword, setShowPassword] = useState(false)
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+
 
     const handleSubmition = e => {
         e.preventDefault()
         const form = e.target;
+        const name = form.name.value
         const email = form.email.value;
         const password = form.password.value;
+        const photoURL = form.photoURL.value
         if (password.length < 6) {
             toast.error('Password must be at least 6 characters long');
             return;
         }
+
         createUser(email, password)
             .then(res => {
                 const loggedUser = res.user;
@@ -32,7 +42,11 @@ const Register = () => {
                     toast.error('An error occurred, please try again later');
                 }
             });
+
+        updateProfileInfo(name, photoURL)
+
     }
+
 
     const continueWithGoogle = () => {
         googleSingIn()
@@ -71,7 +85,8 @@ const Register = () => {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control name='password' type="password" placeholder="Password" required />
+                    <Form.Control name='password'  type={showPassword ? "text" : "password"} placeholder="Password" required />
+                    <small className='text-danger p-2' onClick={handleShowPassword}>{showPassword ? "Hide" : "Show"} Password</small>
                 </Form.Group>
 
                 <Form.Group className="mb-3">

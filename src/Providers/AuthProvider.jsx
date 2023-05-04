@@ -1,5 +1,14 @@
-import React, { createContext, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import {
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth, onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile
+} from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
@@ -9,7 +18,7 @@ const googleAuthentication = new GoogleAuthProvider()
 const githubAuthentication = new GithubAuthProvider()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const createUser = (email, password) => {
         setIsLoading(true)
@@ -33,6 +42,29 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => signOut(auth)
 
+    const updateProfileInfo = (displayName, photoURL) => {
+        setIsLoading(true)
+        updateProfile(auth.currentUser, {displayName, photoURL})
+        .then(() => {
+            setUser(auth.currentUser);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setIsLoading(false);
+          });
+    }
+
+    useEffect(() => {
+        const unMount = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            setIsLoading(false)
+        })
+        return () => {
+            return unMount()
+        }
+    }, [isLoading])
+
     const AuthInfo = {
         user,
         createUser,
@@ -40,8 +72,8 @@ const AuthProvider = ({ children }) => {
         googleSingIn,
         githubSingIn,
         logOut,
-        isLoading
-
+        isLoading,
+        updateProfileInfo
     }
     return (
         <AuthContext.Provider value={AuthInfo}>
