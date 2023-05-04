@@ -4,17 +4,17 @@ import { Card, CardGroup } from 'react-bootstrap';
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
-const ChefInfo = ({chef}) => {
-    const {chef_picture, chef_name, likes, num_of_recipes, years_of_experience, id} = chef
-    
-    return (
-        <div>
-        <CardGroup>
+const ChefInfo = ({ chef }) => {
+  const { chef_picture, chef_name, likes, num_of_recipes, years_of_experience, id } = chef
+
+  return (
+    <div className='chefInfo'>
+      <CardGroup>
         <Card className='shadow p-3'>
-        <div className="overley"></div>
-        <LazyLoad width={400} threshold={0.95}>
-         <Card.Img variant="top" src={chef_picture} />
-        </LazyLoad>
+          <div className="overley"></div>
+          <LazyLoad width={400} threshold={0.95}>
+            <Card.Img variant="top" src={chef_picture} />
+          </LazyLoad>
           <Card.Body>
             <Card.Title>{chef_name}</Card.Title>
             <Card.Text className='d-flex fs-5 align-items-center gap-4'>
@@ -25,10 +25,10 @@ const ChefInfo = ({chef}) => {
           </Card.Body>
           <Link to={`/chef/${id}`}><button className='btn btn-primary'>View Recipe</button></Link>
         </Card>
-       
+
       </CardGroup>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ChefInfo;

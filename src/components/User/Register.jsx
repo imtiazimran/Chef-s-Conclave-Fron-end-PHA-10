@@ -31,7 +31,8 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 const loggedUser = res.user;
-                console.log(loggedUser)
+                toast.success(`Succesfully Created User As ${loggedUser.email}`)
+                
             })
             .catch(error => {
                 if (error.code === 'auth/weak-password') {
@@ -52,7 +53,7 @@ const Register = () => {
         googleSingIn()
             .then(res => {
                 const loggedUser = res.user;
-                console.log(loggedUser)
+                toast.success(`Succesfully Created User As ${loggedUser.email}`)
             })
             .catch(error => {
                 toast.error('An error occurred, please try again later');
@@ -63,7 +64,7 @@ const Register = () => {
         githubSingIn()
             .then(res => {
                 const loggedUser = res.user;
-                console.log(loggedUser)
+                toast.success(`Succesfully Created User As ${loggedUser.email}`)
             })
             .catch(error => {
                 toast.error('An error occurred, please try again later');

@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
-        loader: () => fetch ("http://localhost:8570/blog")
+        loader: () => fetch ("https://server-imtiazimran.vercel.app/blog")
       },
       {
         path: "/chef",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/chef/:chefId",
         element: <PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:8570/chef/${params.chefId}`)
+        loader: ({ params }) => fetch(`https://server-imtiazimran.vercel.app/chef/${params.chefId}`)
       }
 
     ]

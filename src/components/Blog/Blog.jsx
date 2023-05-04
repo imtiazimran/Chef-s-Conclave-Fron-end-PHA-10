@@ -7,19 +7,20 @@ const ref = React.createRef();
 const Blog = () => {
     const blogs = useLoaderData()
     return (
-        <div className='container row justify-content-center mx-auto mt-5'>
-        <h2 className='text-center p-3 rounded shadow'>QnA</h2>
-            <div className='col-md-6'>
-
-                {blogs.map((blog) => (
-                    <div ref={ref} className='shadow rounded mt-5 p-5' key={blog.id}>
-                        <Pdf targetRef={ref} filename="QnA.pdf">
-                            {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-                        </Pdf>
-                        <h2>{blog.question}</h2>
-                        <p>{blog.ans}</p>
-                    </div>
-                ))}
+        <div className='position-relative mb-5'>
+            <Pdf targetRef={ref} filename="QnA.pdf">
+                {({ toPdf }) => <button className="rounded pdf" onClick={toPdf}>Generate Pdf</button>}
+            </Pdf>
+            <div className='container row justify-content-center mx-auto mt-5'>
+                <h2 className='text-center p-3 rounded shadow'>QnA</h2>
+                <div ref={ref} className='col-md-6'>
+                    {blogs.map((blog) => (
+                        <div className='shadow rounded mt-5 p-5' key={blog.id}>
+                            <h2>{blog.question}</h2>
+                            <p>{blog.ans}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

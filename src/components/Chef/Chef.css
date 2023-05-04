@@ -23,9 +23,9 @@
    height: 100%;
    top: 0;
 }
-.chefs .card:hover{
-    scale: 1.05;
+.chefInfo .card:hover{
+   transform: scale(1.05);
 }
-.card-group:hover .card-body{
+.chefInfo .card-group:hover .card-body{
     color: #fff;
 }

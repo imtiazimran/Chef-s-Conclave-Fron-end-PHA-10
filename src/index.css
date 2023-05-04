@@ -33,6 +33,14 @@ nav a {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
+
+.pdf{
+    position: absolute;
+    background-color: rgba(132, 20, 40, 0.733);
+    color: #fff;
+    top: 73px;
+    left: 171px;
+}
 @media screen and (max-width:500px) {
     .grid{
       display: block;

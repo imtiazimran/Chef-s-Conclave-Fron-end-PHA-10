@@ -7,8 +7,8 @@ const ChefRecipe = () => {
     const data = useLoaderData()
     const { chef_picture, chef_name, likes, num_of_recipes, chefRecipe, years_of_experience, bio } = data
     return (
-        <div className='container chefRecipe'>
-            <div className='mt-5 grid text-center mb-md-4 p-4 pb-md-4'>
+        <div className='container'>
+            <div className='mt-5 grid text-center rounded  aboutChef'>
                 <img className='img-fluid rounded shadow' src={chef_picture} />
                 <div className='mt-md-0 mt-5'>
                     <h1 className='mb-5'>{chef_name}</h1>

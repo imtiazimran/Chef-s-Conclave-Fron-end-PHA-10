@@ -36,14 +36,15 @@
     left: 0;
     font-size: 1.2rem;
 }
+.aboutChef {
+    margin-bottom: 100px;
+    padding: 30px 50px;
+    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
 .SingleRecipes:hover .recipe{
     top: 2rem;
 }
 .SingleRecipes:hover .recipeDesc{
     top: 21rem;
 }
-/* .ratings{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-} */

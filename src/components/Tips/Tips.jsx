@@ -5,7 +5,7 @@ import SingleTips from './SingleTips';
 const Tips = () => {
     const [tips, setTips] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8570/tips')
+        fetch('https://server-imtiazimran.vercel.app/tips')
             .then(res => res.json())
             .then(data => setTips(data))
     }, [])

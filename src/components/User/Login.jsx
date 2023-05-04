@@ -29,7 +29,6 @@ const Login = () => {
       signIn(email, password)
           .then(res => {
               const loggedUser = res.user;
-              console.log(loggedUser)
               toast.success(`Welcome ${loggedUser.email}`)
               navigate(from, { replace: true }) 
           })
@@ -38,8 +37,10 @@ const Login = () => {
                 toast.error('Password must be at least 6 characters long');
             } else if (error.code === 'auth/email-already-in-use') {
                 toast.error('Email address is already in use');
-            } else {
-                toast.error('An error occurred, please try again later');
+            } else if(error.code === "auth/user-not-found")  {
+                toast.error('User Not found Plese Register First');
+            } else{
+              toast.error(error.code)
             }
         });
   }
@@ -70,7 +71,6 @@ const Login = () => {
           toast.error('An error occurred, please try again later');
       });
 }
-console.log(from)
   useEffect(()=>{
     if(user){
       navigate(from, { replace: true }) 

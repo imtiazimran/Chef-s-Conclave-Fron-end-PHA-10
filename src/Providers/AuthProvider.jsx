@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
 
     const updateProfileInfo = (displayName, photoURL) => {
         setIsLoading(true)
-        updateProfile(auth.currentUser, {displayName, photoURL})
+        return updateProfile(auth.currentUser, {displayName, photoURL})
         .then(() => {
             setUser(auth.currentUser);
             setIsLoading(false);
