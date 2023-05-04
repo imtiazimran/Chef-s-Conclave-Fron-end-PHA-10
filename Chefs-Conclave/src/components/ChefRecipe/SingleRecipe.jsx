@@ -22,7 +22,7 @@ const SingleRecipe = ({ recipes }) => {
                 <h4 className='recipeDesc text-white'>{description}</h4>
                 
             <Toast  className="position-absolute top-50 start-50 translate-middle" show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide>
-            <Toast.Body>Added to favorite</Toast.Body>
+            <Toast.Body>Added to favorite <InlineIcon className='text-danger' icon="solar:chat-round-like-bold" /></Toast.Body>
         </Toast>
             </div>
             <div>

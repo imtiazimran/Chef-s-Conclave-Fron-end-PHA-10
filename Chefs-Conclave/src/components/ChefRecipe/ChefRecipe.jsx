@@ -5,8 +5,7 @@ import './Chef.css'
 
 const ChefRecipe = () => {
     const data = useLoaderData()
-    const { chef_picture, chef_name, likes, num_of_recipes, chefRecipe, years_of_experience, bio, id } = data
-    // console.log(chefRecipe)
+    const { chef_picture, chef_name, likes, num_of_recipes, chefRecipe, years_of_experience, bio } = data
     return (
         <div className='container chefRecipe'>
             <div className='mt-5 grid text-center mb-md-4 p-4 pb-md-4'>

@@ -14,6 +14,7 @@ import Chefs from './components/Chef/Chefs';
 import Register from './components/User/Register';
 import ChefRecipe from './components/ChefRecipe/ChefRecipe';
 import ErrorPage from './components/Error/ErrorPage'
+import AuthProvider from './Providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/chef/:chefId",
         element: <ChefRecipe></ChefRecipe>,
-        loader: ({params}) => fetch(`http://localhost:8570/chef/${params.chefId}`)
+        loader: ({ params }) => fetch(`http://localhost:8570/chef/${params.chefId}`)
       }
 
     ]
@@ -57,6 +58,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
