@@ -15,7 +15,7 @@ const SingleRecipe = ({ recipes }) => {
     };
 
     return (
-        <div className='grid p-3 mb-md-4 SingleRecipes bg-light rounded '>
+        <div className='grid p-3 mb-5 mb-md-4 SingleRecipes bg-light rounded '>
             <div>
                 <div className='chefRecipeImg'>
                     <Button className='position-absolute' variant="dark" onClick={handleFavoriteClick} disabled={isDisabled}>Favorite <InlineIcon className='text-danger' icon="solar:chat-round-like-bold" /> </Button>

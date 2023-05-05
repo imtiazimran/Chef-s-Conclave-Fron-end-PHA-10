@@ -12,7 +12,7 @@ const ChefInfo = ({ chef }) => {
       <CardGroup>
         <Card className='shadow p-3'>
           <div className="overley"></div>
-          <LazyLoad width={400} threshold={0.95}>
+          <LazyLoad threshold={0.95}>
             <Card.Img variant="top" src={chef_picture} />
           </LazyLoad>
           <Card.Body>

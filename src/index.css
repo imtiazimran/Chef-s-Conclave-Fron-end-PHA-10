@@ -48,6 +48,9 @@ nav a {
     .img-fluid{
         height: 300px;
     }  
+    .chefRecipeImg{
+        width: unset;
+    }
     .card{
         height: auto;
     }
@@ -56,5 +59,8 @@ nav a {
     }
     .container{
         flex-direction: column;
+    }
+    .SingleRecipes:hover .recipeDesc{
+        top: 18rem;
     }
 }
