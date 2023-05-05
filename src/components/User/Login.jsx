@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { toast } from 'react-toastify';
+import useTitle from '../CustomHooks/useTitle';
 
 const Login = () => {
 
@@ -19,7 +20,7 @@ const Login = () => {
   
   const from = location.state?.from.pathname || '/'
 
-  
+  useTitle("Log In")
 
   const handleSubmition = e => {
       e.preventDefault()

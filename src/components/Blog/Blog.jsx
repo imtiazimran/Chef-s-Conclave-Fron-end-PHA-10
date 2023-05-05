@@ -1,11 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Pdf from "react-to-pdf";
+import useTitle from '../CustomHooks/useTitle';
 
 const ref = React.createRef();
 
 const Blog = () => {
     const blogs = useLoaderData()
+
+    useTitle('Blog')
     return (
         <div className='position-relative mb-5'>
             <Pdf targetRef={ref} filename="QnA.pdf">

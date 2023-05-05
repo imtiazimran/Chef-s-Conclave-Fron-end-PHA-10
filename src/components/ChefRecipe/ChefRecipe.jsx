@@ -2,9 +2,11 @@ import { Icon, InlineIcon } from '@iconify/react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import SingleRecipe from './SingleRecipe';
 import './Chef.css'
+import useTitle from '../CustomHooks/useTitle';
 
 const ChefRecipe = () => {
     const data = useLoaderData()
+    useTitle("Testy Recipe From Chefs")
     const { chef_picture, chef_name, likes, num_of_recipes, chefRecipe, years_of_experience, bio } = data
     return (
         <div className='container'>

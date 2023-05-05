@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Recipie from './Recipie';
 import { Spinner } from 'react-bootstrap';
+import useTitle from '../CustomHooks/useTitle';
 
 const Recipies = () => {
     const [recipies, setRecipes] = useState([])
@@ -13,6 +14,7 @@ const Recipies = () => {
                 setIsLoading(false)
             })
     }, [])
+    useTitle("Testy Menu")
     return (
         <div className='container mt-5 mb-5'>
             <h1 className='text-center mt-5 mb-5'>See Out Deliciouse Menu</h1>

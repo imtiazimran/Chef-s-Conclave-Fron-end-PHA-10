@@ -16,6 +16,7 @@ import ChefRecipe from './components/ChefRecipe/ChefRecipe';
 import ErrorPage from './components/Error/ErrorPage'
 import AuthProvider from './Providers/AuthProvider';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute';
+import About from './components/About/About';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path: "/chef/:chefId",
         element: <PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
         loader: ({ params }) => fetch(`https://server-imtiazimran.vercel.app/chef/${params.chefId}`)
+      },
+      {
+        path: "/about",
+        element: <About></About>
       }
 
     ]

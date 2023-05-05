@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../CustomHooks/useTitle';
 
 const Register = () => {
     const { googleSingIn, githubSingIn, createUser, updateProfileInfo } = useContext(AuthContext)
-
+    useTitle("Register")
     const [showPassword, setShowPassword] = useState(false)
 
     const handleShowPassword = () => {

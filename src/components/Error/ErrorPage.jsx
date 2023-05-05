@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useTitle from '../CustomHooks/useTitle';
 
 const NotFound = () => {
+  useTitle('Error')
   return (
     <Container>
       <Row>

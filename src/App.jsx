@@ -9,12 +9,12 @@ import '@smastrom/react-rating/style.css'
 function App() {
 
   return (
-    <div>
-      <ToastContainer />
-      <Navigation></Navigation>
-      <Outlet></Outlet>
-      <Footer></Footer>
-    </div>
+      <div>
+        <ToastContainer />
+        <Navigation></Navigation>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
   )
 }
 

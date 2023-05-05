@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ChefInfo from './ChefInfo';
 import './Chef.css';
 import { Spinner } from 'react-bootstrap';
+import useTitle from '../CustomHooks/useTitle';
 
 const Chefs = () => {
     const [chefs, setChefs] = useState([]);
@@ -16,7 +17,7 @@ const Chefs = () => {
             })
             .catch(error => console.error(error));
     }, []);
-
+    useTitle("Chefs")
     return (
         <div className='chefs'>
             <h1 className='text-center mb-5'>Meet With Our Honorable Chef's</h1>

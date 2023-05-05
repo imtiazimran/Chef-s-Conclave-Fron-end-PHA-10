@@ -7,7 +7,8 @@ import { Icon } from '@iconify/react';
 
 const Navigation = () => {
   const { user, logOut } = useContext(AuthContext)
- const navigate = useNavigate()
+
+  const navigate = useNavigate()
   const handleLogOut = () => {
     logOut()
     navigate("/login")
@@ -22,26 +23,27 @@ const Navigation = () => {
             <ActiveLink to="/blog">Blog</ActiveLink>
             <ActiveLink to="/recipe">Menu</ActiveLink>
             <ActiveLink to="/chef">See Chef's</ActiveLink>
+            <ActiveLink to="/about">About Us</ActiveLink>
           </Nav>
           {
             user ?
               <Button onClick={handleLogOut} variant="outline-primary">Log Out </Button> :
               <Link to="/login"><Button variant="outline-primary">Log In </Button></Link>
           }
-          
-         <div className='mx-3'>
-         {user &&
-          <OverlayTrigger
-            placement="bottom"
-            overlay={<Tooltip id="user-tooltip">{user.displayName ? (user.displayName):(user.email)}</Tooltip>}
-          >
-          {user.photoURL ? (
-            <img className='rounded-circle' src={user.photoURL} alt="User" />
-          ) : (
-            <Icon className='text-white fs-1' icon="mdi:user-circle" />
-          )}
-          </OverlayTrigger>}
-         </div>
+
+          <div className='mx-3'>
+            {user &&
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="user-tooltip">{user.displayName ? (user.displayName) : (user.email)}</Tooltip>}
+              >
+                {user.photoURL ? (
+                  <img className='rounded-circle' src={user.photoURL} alt="User" />
+                ) : (
+                  <Icon className='text-white fs-1' icon="mdi:user-circle" />
+                )}
+              </OverlayTrigger>}
+          </div>
         </Container>
       </Navbar>
     </div>

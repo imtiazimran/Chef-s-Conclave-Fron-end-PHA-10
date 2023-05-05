@@ -46,7 +46,7 @@ nav a {
       display: block;
     }  
     .img-fluid{
-        height: 300px;
+        height: unset;
     }  
     .chefRecipeImg{
         width: unset;
